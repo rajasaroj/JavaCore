@@ -1,0 +1,19 @@
+Timeline) Task
+1st) class is loaded
+2nd) static initializer are invoked
+3rd) Class instance (object) is created at the same time Instance Initalizer Block (IIB) is also created
+4th) Now when class A the object is created
+   4.1) class A constructor is invoked
+   4.2) class A constructor invokes class A_Parent constuctor
+   4.3) once the class A_Parent constuctor is executed completely, Instance Initalizer Block (IIB) present in class A is invoked.
+   4.4) once Instance Initalizer Block (IIB) present in class A is completed then the remaining statements in class A executed
+
+
+So Code wise precedence is:
+
+1) Static { /* some code here */ }
+2) A() {
+       2.1) A_Parent()
+       2.2) { /* some code here in IIB */ }
+       2.3) /* then all the statements in class A constructor */
+    }

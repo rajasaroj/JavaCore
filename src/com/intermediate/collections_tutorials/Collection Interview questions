@@ -1,0 +1,411 @@
+---------------------------------------------- Beginner Level ------------------------------------------------------------
+Q1  What is Collection? What is a Collections Framework? What are the benefits of the Java Collections Framework?
+Ans: Collection:  A collection is also called as container, it groups multiple elements into single unit.
+     Collection Framework:  Provide Unified architecture for manupluating data objects and representing collection.
+     Benefits : Increase Speed and quality, resulablity, decreases programming effort.
+
+
+Q2 What is the root interface in the collection hierarchy?
+Ans: Root hierarchy is iterable iterface, which provides methods like iterator, foreach and splititerator but it belong to java.lang package
+     Child of iterable interface is collection interface
+
+
+Q3 What is the difference between Collection and Collections?
+Ans: Collection: is an interface whcih provides multiple interfaces of set, list, queue etc
+     Collections: is a Utility class is consists of static methods to iterate, Search upon particular element or data present in Collection
+
+
+Q4 Which collection classes are synchronized or thread-safe?
+Ans: Vector, Stack, Hashtable, Properties
+
+
+Q5 Name the core Collection interfaces?
+Ans: Collection -> {
+            List,
+            Queue -> {
+                Deque,
+                BlockingQueue
+            },
+            Set -> {
+                SortedSet,
+                NavigatiableSet
+            }
+   }
+
+
+Q6 What is the difference between List and Set?
+Ans: List: Ordered (the way in which objects are added), Can have duplicates.
+     Set: Unordered, Does not Store Duplicates, Unique elemets only.
+
+
+Q7 What is the difference between Map and Set?
+Ans: Map -> {
+        keys: (Only Unique keys are allowed)
+        Values: (Values can be same)
+    },
+
+    Set -> {
+        Values: (Only Unique Values are allowed)
+    }
+
+
+Q8 What are the classes implementing List and Set interface?
+Ans: List -> {
+        Abstractlist, Arraylist, LinkedList, AbstractSequentiallist, Vectors
+    },
+
+    Set -> {
+        TreeSet, AbstractSet, HashSet
+    }
+
+
+Q9 What is an iterator?
+Ans: It is a interface found in java.util used to iterate over collection
+
+
+Q10 What is the difference between Iterator and Enumeration?
+Ans: Iterator is can also manipulate (can removes objects) the data while iteraton.
+     Enumeration only iterate over the data, no modification, only read only interface. (only travese and fetch)
+
+
+Q11 Which design pattern followed by Iterator?
+Ans: it follows iterator design pattern, Iterator design pattern can navigate through collection of objects without letting
+     know about underlying implementation. (eg: Enumeration)
+
+
+Q12 Which methods you need to override to use any object as a key in HashMap?
+Ans: Equals and Hashcode method should be overriden when you use object as key.
+
+
+Q13  What is the difference between Queue and Stack?
+Ans: Queue is the Datastructure which is based on FIFO (eg: You take ticket in ticket counter and then youre allowed to enter in multiplex
+     in Queue).
+     Stack is the Datastucture which is based on LIFO (eg: Placing clothes in the bag or Instagram Feeds)
+
+
+Q14 How to reverse the List in Collections?
+Ans: reverse method can be called for Collections class to reverse list
+
+
+Q15 How to convert the array of strings into the list?
+Ans: Arrays.asList()
+
+
+---------------------------------------------- Intermediate Level ------------------------------------------------------------
+Q16 What is the difference between ArrayList and Vector?
+Ans: Arraylist is non threadsafe, but it is fast.
+               When needed Arraylist increase 50% of its capacity.
+               Default size is 10.
+               Uses iterator to iterate.
+
+     Vector is threadsafe, is slow
+               When needed Vector increase 2x of its capacity.
+               Asks you to set size manually.
+               The only class that uses iterator and enumerator.
+
+***
+Q17 What is the difference between HashMap and Hashtable?
+Ans: HashMap -> {
+            -Non Thread safe.
+            -Faster than hashtable.
+            -Uses iterator.
+            -Used in Single threaded env.
+
+            Key: Allows only one null key.
+                 Allows no Duplicate key.
+
+            Value: Allows n numbers of null values.
+        },
+
+     HashTable -> {
+            -Thread Safe.
+            -Slower than the non synchornized HashMap.
+            -Uses Enumerator.
+            -Used in Multi-threaded env.
+
+            Key: No Null keys allowed.
+            Values: No Null values allowed
+        }
+
+***
+Q18 What is the difference between peek(), poll() and remove() method of the Queue interface?
+Ans: Both poll() and remove() method is used to remove the head object of the queue.
+
+     Senario: What if the queue is empty:
+            poll() -> returns null.
+            remove() -> throws NoSuchElementException.
+            peek() -> although peek method retrive but doesnt removes the head of queue, so in this case it will also return null.
+
+
+
+Q19 What is the difference between Iterator and ListIterator.
+Ans: Iterator: will travese on objects only in forward direction.
+     ListIterator: will travese on objects in both the direction (forward, backword both)
+
+
+Q20 What is the difference between Array and ArrayList in Java?
+Ans: Array: Static in size (You've to mention size while creation).
+            can contain primitive datatype as well as objects.
+            can be multidimentional.
+            only stores homogenous elements.
+
+     ArrayList: Dynamic in size (no need to mention size).
+                contain only object
+                only single dimensional.
+                can store heterogenous elements.
+
+***
+Q21 What is the difference between HashSet and TreeSet?
+Ans: HashSet: Internal uses hashmap, to keep the values unique (as we know keys of hashmap are unqiue).
+              Ordering is random.
+              Store null values.
+              Have constant performance for addtion, contains and removal.
+              More faster than Treemap.
+
+     TreeSet: Internal uses TreeMap, to keep the values unique
+              Maintains insertion order.
+              Throws NullPointerException.
+              Have log(n) performance for addtion, contains and removal.
+              Slower than HashMap.
+
+
+Q22 Write java code showing insertion, deletion, and retrieval of HashMap object?
+Ans:    hmap.remove(//some key);
+        hmap.get(// some key);
+
+***
+Q23 What is the difference between HashMap and ConcurrentHashMap?
+Ans: HashMap: Non-Synchronize
+              Allow one null key
+              Faster in Multithread env
+              No method of HashMap are synchronize
+
+     ConcurrentHashMap: Synchronize
+                        Null key or Null values not allowed
+                        Slower in Multithread
+                        Some method of ConcurrentHashMap are synchronize (put, compute etc)
+
+
+Q24 Arrange the following in the ascending order (performance): HashMap, Hashtable, ConcurrentHashMap, and Collections.SynchronizedMap
+Ans: Hashtable  <  Collections.SynchronizedMap  <  ConcurrentHashMap  <  HashMap
+
+***
+Q24 SynchronizedMap VS ConcurrentHashMap?
+Ans: ConcurrentHashMap: -You should use when you need very high concurency in your project.
+                        -It is thread safe without synchorizing the whole map.
+                        -Reads can happen very fast asynchrounsly.
+                        -its doesn't throws ConcurrentModifcationExecption even if one thread is modifing it and the other one is iterating over it.
+                        -There's no locking at object level.
+                        -The locking is at much finer granularity at hashmap bucket level.
+
+     SynchronizedMap: -Synchorinzation at object level.
+                      -Every read/write aquires lock.
+                      -locking entire collection is performane over head and can cause contention.
+                      -It return iterator which can fail fast on concurrent modification.
+
+***
+Q25 How HashMap works in Java?
+Ans: Answered in Book.
+
+
+Q26 What is the difference between LinkedList and ArrayList in Java?
+Ans: LinkedList: is the doublylinked list implementation in list interface.
+                 it can be iterated in both the direction using descending iterator.
+                 Good for insertion, removal etc
+                 Slow for travesal and search.
+
+     ArrayList : is the resizeable array implementation in list interface.
+                 can only be iterated on one direction, you've to write own impl to iterate backwards.
+                 Good for get or search operation
+                 Slow for add
+
+
+Q27 What are Comparable and Comparator interfaces? List the difference between them?
+Ans: Comparable: is the interface use to impose only single sort logic on self and other object.
+                 Need to implement compareTo from the interface.
+                 single sorting logic is tightly coupled with the class.
+                 Modify Classes to implement this interface to get their objects sorted.
+
+     Comparator: is the interface which can be used to impose multiple sorting logic on other objects.
+                 need to provide logic for comparison on 2 arguments in compare method.
+                 multiple sorting logics can be implemented as the comparator interface take 2 arguments as an input to compare.
+                 No need for Modifying to implement this interface, instead we can also provide an anonymous class with overriden compare method comparing to arguments at a time.
+
+
+Q28 Why Map interface does not extend the Collection interface in Java Collections Framework?
+Ans: Map interface doesn't extends from the Collection interface because the data stucture and the operation on that datastructor.
+     as the Map store key->value pairs which is supported by put method, the put method require 2 arguments Key and Value this is entirely
+     different from Collection interface add method.
+     Another reason is the map uses key values set which uses other methods like containsKey or EntrySet etc are different,
+     From collection interface.
+
+
+Q29 When to use ArrayList and LinkedList in the application?
+Ans: ArrayList: You should use arraylist, when you need search and get complexities as O(1).
+                When you're not going to iterate in backword direction. (its not supported you've to write you own logic).
+
+    LinkedList: You should use arraylist, when you know there's lot of insertion and deletion is going to happen because in that case complexities is O(1).
+                When you might want to iterate into backword direction using descending Iterator.
+
+Q30 Write the code for iterating the list in different ways in java?
+Ans: Using iterator.
+     Using foreach.
+
+
+@30 Difference between iterator and listIterator:
+Ans: Iterator: applicable for list, set, queue.
+               offers: hasNext()
+                       next()
+                       remove() only.
+               cannot move backwards.
+
+     ListIterator: applicable only for list.
+                   offers: hasNext()
+                           next()
+                           previous()
+                           hasPrevious()
+                           remove()
+                           nextIndex()
+                           previousIndex().
+                   can move backwards.
+
+
+Q31 Give a practical example of BlockingQueue?
+Ans: implemented in the code.
+     additonal eg. (fetching file from ftp poller).
+
+
+Q32 What is the default capacity of mostly used java collections (like ArrayList and HashMap)?
+Ans: Arraylist = 10
+     Hashmap = 16
+
+
+Q33 How HashSet works internally in java?
+Ans: Refer Hashmap because it uses hashmap internally
+
+
+Q34 What is CopyOnWriteArrayList?  How it is different from  ArrayList in Java?
+Ans: Sir's explaination:
+           It is thread safe variant of arraylist.
+           allows you to do the modification while modifying the array.
+           Doesn't throws concurrentmodificationException.
+           Create copy or snapshot of array whenver modification happens
+           fail-fast safe
+
+
+Q35  How HashMap works in Java?
+Ans: Already Disscussed above.
+
+
+Q36 How remove(key) method works in HashMap?
+Ans: Hashmap remove method calls removeEntryForKey method internally,
+     this method generates the hashvalues of the object provided as the key.
+     using hashvalue we get the index of the bucket.
+     the we inspect the entries of the bucket by traversing and comparing (hashvalue and key).
+     once we find the entry which matches hashvalue or key, we remove that entry.
+     removal happens in the same way how node is removed from linkedlist.
+     the removed entry is store in E param, and returned by remove Method.
+     return removes entry if present, or else it will return null if not present.
+
+
+Q37 What is BlockingQueue in Java Collections Framework?
+Ans: BlockingQueue is the threadsafe version of the Queue.
+     This queue, awaits the consumer from consuming if the queue is completely empty.
+            and, awaits the producer from producing if the queue is completely full.
+     it is usually impelemented in producer consumer pattern.
+     doesn't accepts null.
+
+
+
+Q40 What is the difference between Fail- fast iterator and Fail-safe iterator?
+Ans: Fail- fast: While iterating through collection, it instantly throws ConcurrentModificationExecption when the structural Modification of the array happen.
+                 The fail fast iterator uses "mod" flags after iterating to every next value it checks the mod flags and determine if Modification happened or not.
+                 it can fail in 2 scenarios:
+                 1) Single thread:- after the iterator is created, some structural modification happen.
+                 2) Multi thread:- when one thread is changing and other one is iterating.
+
+     Fail-safe: it creates the copy of DS internally hence it guarentees no ConcurrentModificationExecption will happen even when you modify.
+                Make copy of internal datastructure and iterate over the copied DS.
+                Note: any changes made on orignal array will not be reflected in the iterator (because it travese over snapshot of collection)
+                it requires extra memory as it clones.
+
+                For Copyonwritelist :- iterator cannot perform remove operation (Throw unsuported execption)
+                                       orignal array changes are synchronized by snapshot by JVM.
+
+
+Q41 How ConcurrentHashMap works internally in Java?
+Ans: Internal working is similar to hashmap, but provides addtion feature for thread safety.
+     -it has the feature of lock but still it is faster that other thread safe map implementation.
+     -it only lock 12 bucket at a time and each of the buckets has different locks. (so thread a can access bucket 1 and thread 2 can access other bucket at the same time).
+     -there's no lock for read operation.
+
+
+Q42 How do you use a custom object as a key in Collection classes like HashMap?
+Ans: If you want to use custom object as key in Collection, the you have to overrride equals and hashcode methods.
+     and you should also follow the contract, that says,
+     1) if the equals is true then the hashcode has to be true.
+     2) if the hashcode is true then the two objects .equals doesn't nessary to be true (a bucket can have multiple objects with same hashcode).
+
+
+
+Q43 What is hash-collision in Hashtable? How it was handled in Java?
+Ans: In hashtable, hash collision happens when the to key objects generates the same hash value,
+     it this time Linklist is created to store different key objects with same hash values.
+
+
+Q44 Explain the importance of hashCode() and equals() method ? Explain the contract also?
+Ans: The map uses key object hashcode method and .equals method to determine the bucket index and key values pair for put operation.
+     the same method are also used to retrive value during get operation.
+     these methods has to be overriden correctly if not implemented correctly,
+     Then 2 keys might return same equals and same hashcode this will lead to overwriting the values of latest entries with the previous one.
+     or if you override .equals() incorreclty:- it might check for address or refernce and end up creating more entries in linklist.
+     or if you override .hashcode() incorreclty:- it will create distinct hashcode for every key object and number of buckets will increase.
+
+
+
+Q45 What is EnumSet in Java?
+Ans: Enumset is specialize set collection for working with enum classes.
+     it impelents set interface and extends abstract set
+     can contain only enum values, null not allowed
+     Enums are implemented using artihmatic bitwise operation.
+     computation are very fast and efficient, less memory and executation happens in constant time.
+
+
+Q46 What are concurrentCollectionClasses?
+Ans: intrudced in 1.5 java Api developer added this concurrentCollectionClasses.
+     help to modify collection while iterating.
+     iterator is fail safe.
+     doesn't throws concurrent modifcation execption.
+     eg CopyOnWriteArraylist, ConcurrentHashMap
+
+
+
+Q47 How do you convert a given Collection to SynchronizedCollection?
+Ans: collection.synchronizeCollection()
+
+
+Q50 How will you make Collections readOnly?
+Ans: Collections.unmodficableCollection(); makes the collection read only.
+     if you try to modify the collection it will throw unsuportedOperationException.
+
+
+
+Q51 What is UnsupportedOperationException?
+Ans: UnsupportedOperationException tells that the particular operation is not support for that implementation.
+     lets take eg: of readonly collection if you apply Collections.unmodficableCollection(); to collection and try to modify that collection
+     then it will throw UnsupportedOperationException.
+
+
+Q52 Suppose there is an Employee class. We add Employee class objects to the ArrayList.
+    Mention the steps that need to be taken if I want to sort the objects in ArrayList using the employeeId attribute present in Employee class.
+Ans: Implement comparable interface
+     Override the compareTo method with you're own sort logic on empid field.
+     call Collection.sort(listOfEmployee)
+
+
+Q53 What are common algorithms used in the Collections Framework?
+Ans: There's algorithms for searching and sorting, binary search for seaching and red and black for sorting in treeMap.
+
+
+Q54 How to sort ArrayList in descending order?
+Ans: Collection.sort(list, Collection.reverseOrder())

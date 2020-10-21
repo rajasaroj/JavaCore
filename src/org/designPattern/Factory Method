@@ -1,0 +1,50 @@
+intro: It is a creational design pattern, in this design pattern the object is created in super class and later it is alterd by subclass
+or you can also say in simpler terms.
+This design pattern, define an interface for creating objects and leave it on subclasses to decide classes to instantiate.
+
+
+problem: let take an example: suppose you have created an logistic app for truck transport now you business grew up to quickly and you got quieres for sea transport logics as well
+         now you code for truck transport is only create for land based logisitics for truck but code wise it will be dificult to incorporate the sea based logistic, if you want to do it in the same code
+         you will end up will lot of buisness logic change in truck code itself with riddled switch case and condition logic which will make your code more error prone and obselete because then, your code might be
+         not good for suporting either of the logistics
+
+
+Solution: This problem can be solved by avoiding the direct creation of an object and delegating the creation of an objeect to the factory method,
+          which will create an apporpriate object for you based on requirement.
+
+
+eg:
+
+interface Polygon {
+    String Type(Sides s);
+}
+
+class Triangle implements polygon {}
+class Square implements polygon {}
+class hexagon implements polygon {}
+
+class PolygonFactory {
+
+public Polygon createPolygon (int shape) {
+
+    // if shape 4
+    return new Square();
+    // if shape 6
+    return new hexagon();
+    // if shape 3
+    return new Triangle();
+}
+}
+
+
+class MyApp {
+
+public static void main() {
+    PolygonFactory polyFactory = new PolygonFactory()
+    Ploygon poly = polyFactory.createPolygon(4);
+}
+
+}
+
+
+

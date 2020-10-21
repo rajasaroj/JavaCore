@@ -1,0 +1,177 @@
+1)  What are new features which got introduced in Java 8?
+Ans: Default methods in interface for backward compatiblity,
+     Method referencing,
+     lambda expression,
+     Stream API,
+     Functional Interface,
+     Optional
+
+
+2) What are main advantages of using Java 8?
+Ans: Compact code,
+     less boiler plate code,
+     Readable and reusable,
+     parallel operation.
+
+
+3) What is lambda expression?
+Ans: Lambda expression is a anoynmous function, which has method parameter and method body but doesn't have any name.
+     syntax (param x, param y) -> { //statements here }
+     you can call it a function without name.
+
+
+4) Can you explain the syntax of Lambda expression?
+Ans: Systax can be written in multiple ways
+     1) (param x, param y) -> { //statements here }
+     2) (x, y) -> // Some statement or Expression
+     3) () -> // Some statement or Expression
+     4) x -> // Some statement or Expression
+     You can divide structure of lambda in 3 parts:
+         a) arguments
+         b) array toker (->)
+         c) Statement or expression or both
+     body can have c) if only one statement or expression then no curly braces needed, return type will be same as function expresion or statement.
+                      if more than one statement or expression then curly braces are needed, return type will be value returned from block, void if no return mentioned.
+
+
+5) What are functional interfaces?
+Ans: Functional interfaces have only one abtract method,
+     can have  default and static method,
+     java have many functional interfaces, Runnable and comparable are one of them.
+
+
+6) How lambda expression and functional interfaces are related?
+Ans: Lambda expression can be applied to the abstract method of function interfaces.
+     if you take example of Thread class which takes Functional interface Runnable
+     here lambda can help you to provide defination for run method, and java will implecitly create Runnable that can be executed by Thread.start method.
+
+
+
+7) Can you create your own functional interface?
+Ans: Yes. refer the code.
+
+
+8) What is method reference in java 8?
+Ans: Method reference is used to refer method for functional interface, it is more compact way of assigning methods,
+     You can replace lambda with method refernces.
+     Crietera for implementing the method reference.
+     1) the protoype or signature of funtional interface method is same as reference method.
+     2) or the return type of referencing method should be the child class of (the return type of abstract method)
+     3) if the return type of the abrtact method is void the referencing method can have any kind of return type.
+
+     Criteria for argument: (this is opposite of retrun type)
+     1) the argument type of referencing method should be same or super class, and the argument in the abstract method should be same or child class.
+
+
+
+9) What is Optional? Why and how can you use it?
+Ans: it is used to avoid null pointer exception.
+     The optional class check if the values is present or not present.
+     it is the wrapper arround the object which is used for pre determination of value to avoid nullPoinException.
+     You can use it for programs like sequnce detection or repeated character in array.
+
+
+10) What are defaults methods?
+Ans: Default method are those method in the interface which has body it is used for backwards compatiblity
+
+
+11) What is the difference between Predicate and Function?
+Ans: Predicate and Function both are functional interface.
+     Predicate<T> is use to test some values and returns boolean, therefore it has absttract method test.
+     Functional<T, R> is use to apply some logic on sum values and also return value of any type you want, therefor it has apply method.
+
+
+12) Are you aware of Date and Time API introduced in Java 8? What the issues with Old Date and time API?
+Ans: Thread Safety: The older date api even simpleDateFormater non thread safe, where as new Date api is thread safe
+     Good Reablity: The older date api is poorly designed and hard to understand, new Date Api is quite comprisensible and comply to ISO Standards
+
+
+13) Can you provide some APIs of Java 8 Date and TIme?
+Ans: LocalDate,
+     LocalTime,
+     LocalDateTime,
+     As the name suggest these api are local in the context and provide users local and current Date and time details
+
+
+14) How will you get current date and time using Java 8 Date and TIme API?
+Ans: LocalDate.now(),
+     LocalTime.now().
+
+
+15) Do we have PermGen in Java 8? Are you aware of MetaSpace?
+Ans: until java 7 JVM used PermGen to store classes, but the problem with the PermGen that it has only fixed maximum size and cannot grow dynamically.
+     whereas Metaspace doesn't have any constraint and it can grow dynamically.
+     size as be set by JVM param -XX:MetaspaceSize to set initial size and -XX:MaxMetaspaceSize=N to set max size
+
+
+16) Given a list of employees, you need to filter all the employee whose age is greater than 20 and print the employee names.(Java 8 APIs only)
+Ans: Answers in EmployOffice Code.
+
+
+17) Given the list of employees, count number of employees with age 25?
+Ans: Answers in EmployOffice Code.
+
+
+18) Given the list of employees, find the employee with name “Mary”.
+Ans: Answers in EmployOffice Code.
+
+19)Given a list of employee, find maximum age of employee?
+Ans: Answers in EmployOffice Code.
+
+
+20) Given a list of employees, sort all the employee on the basis of age? Use java 8 APIs only?
+Ans: Answers in EmployOffice Code.
+
+
+21) Join the all employee names with “,” using java 8?
+Ans: Answers in EmployOffice Code.
+
+
+22) Given the list of employee, group them by employee name?
+Ans: Answers in EmployOffice Code.
+
+
+23) Difference between Intermediate and terminal operations in Stream?
+Ans: Intermediate: They are lazy in nature,
+                   Doesn't get executed immedaitely.
+                   They return stream.
+                   eg map, flatmap, stream, filter, sorted(Comaprator)
+
+    Terminal : They are egar in nature,
+               Get executed imedately,
+               Doesn't retrun stream instead it return value the operation is requested for.
+               eg count, min, max, findany, findall, collect, toArray, foreach
+
+
+
+24) Given the list of numbers, remove the duplicate elements from the list.
+Ans: Collectors.toset() or .distinct().
+
+
+25) Difference between Stream’s findFirst() and findAny()?
+Ans: findFirst: will always return first element from stream
+                has deteministic behaviour.
+
+     findAny: will return any element from string.
+              doesn't has deteministic behaviour.
+
+
+26) Given a list of numbers, square them and filter the numbers which are greater 10000 and then find average of them.( Java 8 APIs only)
+Ans: Answers in EmployOffice Code.
+
+
+27) What is use of Optional in Java 8?
+Ans: to avoid null pointer execption answer discussed in more detail above.
+
+
+28) What is predicate function interface?
+Ans: predicate<T> functional interface will abstract method test return boolean (Also discused above).
+     used in filters.
+
+29) What is consumer function interface?
+Ans: consumer<T> is a single argument functional interface with method accept doens't return anything.
+     used in foreach.
+
+30) What is supplier function interface?
+Ans: is a functional interface which doesn't takes any parameter but return value using get method.
+     used as input param in Stream().generate(Supplier<>).

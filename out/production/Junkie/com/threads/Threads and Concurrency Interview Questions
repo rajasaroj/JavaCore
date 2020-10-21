@@ -1,0 +1,312 @@
+1)  What is Thread in Java?
+Ans: Thread is the independent path of executing for task.
+     You can take advantage of multiple cpus using threads.
+     You can employ multiple cpus to multiple threads and get them executed parallely, so that one independent task doesn't have to wait for other one to get over.
+     for eg if you have task that take 100 milliseconds and you have 10 cpus.
+     You can create 10 threads and get them executed parallely hence the execution time for 10 threads doing the same job will be 10 miliseconds
+     multithreading is the most powerful feature of java.
+
+
+2)  What is the difference between Thread and Process in Java?
+Ans: Threads are the subset of Process,
+     Every Process have its own memory space, but mutiple threads belonging to a particular process will share same heap.
+     Threads are lightweight process, every thread creates it own stack for storing local data.
+     Thread can communicate with each other with wait, notify etc whereas its process has to communicate through interprocess comunication.
+
+
+3)  How do you implement Thread in Java?
+Ans: You can impement thread in java by extending Thread class and overriding run()
+     or you can implement runnable and provide implementation in run();
+     and provide the object of that class to thread constructor and call start().
+
+
+4)  When to use Runnable vs Thread in Java?
+Ans: As we know that java doesn't support multiple inheritance, but supports implementing multiple interfaces.
+     with thread you have 2 options:
+     1) Implement runnable
+     2) extend Thread class.
+
+     if you use the 2) option of extending the thread class, then you will not able to extend any other class as java don't support multiple inheritance.
+     but if you go by 1) option you will just impelemnt the interface, and extend any other class like CommandListener.
+     hence  1) Implement runnable is better option.
+
+
+***
+6)  What is the difference between start() and run() method of Thread class?
+Ans: When you call .start() a new thread is create with different stack and the code inside the run method is executed in that newly created thread.
+     but when you call .run() no new thread is created and run method excutes the code in the same current thread (main() if youre calling run from main method).
+     if you want to take advantage of parallelism you should make use of .start().
+     if you call .start() twice it will throw java.lang.IllegalThreadStateException.
+     if you call .run() twice it won't throw IllegalThreadStateException exception.
+
+
+7)  What is the difference between Runnable and Callable in Java?
+Ans: Runnable interface provides run() method for implementation the return type of this method is void.
+     Callable interface provides call() method for  implementation the return type of this method is object and can throw execption
+     if you want to just get the thing execute and don't want to return anything use .run()
+     if you want to get the thing executed and want to return anything or want to throw exepction use .call().
+
+
+***
+8)  What is the difference between CyclicBarrier and CountDownLatch in Java?
+Ans: CountDownLatch and CyclicBarrier waits for number of threads on one or more events,
+     but the Countlatchdown is not reusable when it gets zero. while CyclicBarrier can be reused.
+
+     CountDownLatch: consider this as story of a familyman working in the company, who has a wife and a daughter.
+                     one day the familyman plan to hangout with his family. he instructed his wife and his daughter to call him and
+                     let him know once they are ready, he will come and pick them up for ride.
+                     his wife ringed him, when she got ready.
+                     his daughter ringed him, when she completed the tutions.
+                     Then familyman came and took them to the ride.
+
+                     Here: familyman is thread1 and wife and daughter is thread2 and thread3.
+                     thread1 awaits for thread2 and thread3 to countdownlatch to zero.
+                     when thread1 is ready countdownlatch 1.
+                     when thread2 is ready countdownlatch 0.
+                     the thread1 resumes with execution.
+
+
+     Cyclibarrier:   Consider this as story of tution teacher who awaits for all students to arrive (even the late comers).
+                     Once all the student arrived the Cyclicbarrier breaks and tution teacher start teaching.
+
+     As you see both the methodology awaits for dependent there but the only difference here is:
+     Coundownlatch: is once for once, because familyman is not going to take family on ride everyday
+     Cyclibarrier: is reusable, because tution teacher is going take tution everyday. (so it can be considered as cyclic activity).
+
+
+10) What is volatile variable in Java?
+Ans: volatile variable solve the problem of visiblity when multiple threads are using instance variable.
+     the change made by one thread will not be visible to the another one, because every threads has there own local cache where they store there own copy of instance variable.
+     when you set instance variable to volatile it stores the instance variable to shared cache, now every threads can refer this variable from shared cache.
+     uses: let suppose 2 threads are running
+           thread1 has infinite while loop with boolean flag to loop out,
+           Now the thread2 decide when the while loop should loop out, by setting the boolean flag to false.
+           in this case the boolean flag should be visible for both of the threads.
+
+
+***
+11) What is thread-safety? is Vector a thread-safe class?
+Ans: thread-safety is property of any object or code, which ensure a consistent behauvior even if the state of the object is, manipulated by multiple threads.
+     lets take a example of a thread safe counter, the thread safe counter instance will not miss any count even if same instance is shared by multiple threads.
+     one of the example of thread safe counter is AtomicInteger.
+     yes vector is threadsafe class. whereas arraylist is not.
+
+
+***
+12) What is race condition in Java? Given one example?
+Ans: Race condition is a concurrency bug in your program which happens when:
+     multiple threads running is parallel
+     Excecuting some set of instuction in interleaved manner
+     using shared object.
+
+     the most classic example of this issue is Counter problem in multithreading.
+     here set of instruction are (read, update and write)
+     any thread executing this counter should atomically compelte all the instruction and then provide the counter to another thread.
+     but when the operation happens in interleaved manner (non atomic way) that means thread1 and thread2 is doing read operation at same time and write ops as well.
+     this intruduces inconsitency in programs.
+     this can be solve by synchronize blocks or locks.
+     Tip: use thread-safe singleton classes
+
+
+13) How to stop a thread in Java?
+Ans: Java doesn't provide sure shot way to stop thread, although it has some deprcated methods such as .stop() or finalize().
+     programmer me rely on interrupt logic to abruptly cancel the task.
+
+
+14) What happens when an Exception occurs in a thread?
+Ans: In simple words "if not caught it will die".
+     if the uncaught execption handler is register the it will get the call back if any execption occur.
+     SO i that case what happens is:
+     1) When any thread about to raise an unCaugthException JVM will query UnCaughtExceptionHandle.
+     2) using the queiring will be done using Thread.getUncaughtExceptionHandler() it will invoke its .uncaughtException() method
+     3) pass the thread, throwable Exception as argument
+
+
+15) How do you share data between two thread in Java?
+Ans: Blocking Queue. using produce consumer pattern
+
+
+***
+16) What is the difference between notify and notifyAll in Java?
+Ans: As we know in concurrency multple threads are waiting for single monitor locks.
+     Java Api designer provided a method to inform the one or all the threads as once once wait status change.
+     1) notify is inform only one thread and doesn't provide way to choose paticular thread (you should use it when you know theres only one thread).
+     2) notify all will inform all of the threads so that they can compete for the lock.
+
+
+***
+17) Why wait, notify and notifyAll are not inside thread class?
+Ans: Obivous Reasons: Java provide locks on Objects level and not on threads level.
+                     1) Every object has the lock, which is aquired by threads.
+                     2) Now if threads need to wait for a lock, it truly make sense to call .wait() method on that particular object.
+                      (so for thread t calling .wait() of object b, shows that thread t is waiting for object b).
+                     3) if the .wait() method was in the Thread class. then JVM would able to know thread t is waiting for which object.
+                     3) Same goes for the other method as well.
+                     4) having these methods on object level, help jvm to know which thread is talking about which object
+
+
+
+18) What is ThreadLocal variable in Java?
+Ans: ThreadLocal variable are those variable which has one instance per threads.
+     Threadlocal provides high performance with being memory efficient.
+     Reason:
+     Senario 1) let say you created a 10000 tasks and all of those 10000 tasks are using local variable of Simpledataformator objects.
+             Now all the 10000 tasks will invoke the Simpledataformator objects for 10000 time this will cause memory over head.
+
+     In order to avoid this you can create ThreadLocal for only 10 threads and threadlocal variable for Simpledataformator.
+     So at a time only 10 threads will be created and each thread will invoke their own Simpledataformator objects so only 10 objects will be created.
+
+     this makes the Threadlocal variable be effective and memory efficient.
+
+
+19) What is FutureTask in Java?
+Ans: FutureTask represent asynchronus computation in concurrent application.
+     FutureTask has base implemetation of future and provide provision to .start() the computation or cancel computation.
+     you can also retrive value from only after the computation complete by .get().
+     .get() will block unless the computation is not completed.
+     A futureTask object can be used to wrap with runnable or callable.
+
+
+20) What is the difference between the interrupted() and isInterrupted() method in Java?
+Ans: Thread.interrupted() clears the interrupt flag
+     isInterrupted() doesn't clears the interrupt flag.
+     Interrupt mechanism is impelmented by setting interrupt flag, whenever the thread raise interrupt the flag is set as true and when the static Thread.interrupted() is called this flag is cleared.
+     Whereas the non static isInterrupted method invoked by another thread to check the status of another thread doesn't clears the flags, doesn't matter how many time its invoked.
+
+
+21) Why wait and notify method are called from synchronized block?
+Ans: The wait and notfiy method should callled form sync block or else it will throw IllegalMontiorState Exception.
+     The Reason behind the exception is to avoid race condition between wait and notify calls
+     Note the thread are in competitng state when control arrives on the sync block, out of that one luck thread with get the monitor to execute wait/notify calls.
+     like this ways the competing situation or race condition on wait and notify is avoid by sync block.
+
+
+22) Why should you check condition for waiting in a loop?
+Ans: if you check the waiting condition in the if statement then there's a possiblty when notfyall is called from other thread for some other purpose, the thread which is in waiting conditon,
+     under your if statement we get release and wouldn't check the queue/or any other business condition again, and start executing this will lead to race condition senario.
+
+
+23) What is the difference between synchronized and concurrent collection in Java?
+Ans: Synchornize and Concurrent both provides thread safety, but the concurrent collection is more scalable then synchronization.
+     Reason: Java developer before 1.5 only had synchronized collection, which locks the whole collection objects if its is used in multithreading it causes lot of contention,
+     this hampered the scalablity of the system.
+     Whereas in Concurrent collection like Concurrenthashmap the lock are provided at very granular level, that is at bucket level, which make concurrenthashmap scalable as well as
+     threads safe both at same time.
+
+
+24) What is the difference between Stack and Heap in Java?
+Ans: You should be able to answer it by your own.
+     1) Threads local caches problem -> explain how volatile able to solve it.
+
+
+25) What is thread pool? Why should you thread pool in Java?
+Ans: Creating thread again and again is expensive in term of time and resource.
+     This is slow down your response time of your application.
+     This may also lead to thread leak.
+
+
+26) Write code to solve Producer Consumer problem in Java?
+Ans: Refer code in collections.
+
+28) What deadlock in Java?
+Ans: 1) Mutual Excluion: eg of sychzonization: non shareable resource been held by particular thread.
+     2) Hold and wait: thread t1 is holding some resource at the same time its also waiting for some other resoruse held by other thread.
+     3) non preemption: the process will not release the resourse held by a thread, the threads should voluntatily release the resources.
+     4) Circular wait: A thread is wating for some resourse held by onther thread and that thread us waiting for resouce held by this thread.
+
+     if the above 4 point occurs the the process has dead lock
+     in order to resolve this issue you should reoslve circular wait.
+
+     Thread Starvation: is a thread waiting for resources for long time.
+
+29) How do you check if a Thread holds a lock or not?
+Ans: There's a method called holdLock() in thread, return true only if monitor hold the lock.
+
+30) How do you take thread dump in Java?
+Ans: Jstack, Vsualvm.
+
+
+31) Which JVM parameter is used to control stack size of a thread?
+Ans: -Xss parameter.
+
+
+32) What is the difference between synchronized and ReentrantLock in Java?
+Ans: Before java 5 the only way of providing mutual exclusion via synchronized method or block, but this method has several short comings,
+     1) Threads cannot give up on trying for the lock.
+     2) You cannot extend lock beyond sychronized method or synchornize block boundries.
+
+     When reentrent lock was introduced using lock interface,
+     1) it gave flexiblity.
+     2) Fairness -> give change to longest waiting thread
+     3) Time outs to interupt those theres who are waiting for stipulated time.
+     4) provide trylock which acquire lock only if its free at the time of invocation
+
+33) There are three threads T1, T2, and T3? How do you ensure sequence T1, T2, T3 in Java?
+Ans: T3 calls .join(T2)
+     T2 calls .join(T1)
+
+
+34) What does yield method of Thread class do?
+Ans: Yeild method is one of the way to request current thread to give up CPU, so that other theres gets chance to execute.
+     Yeild method is static method which guarenttees to give up CPU, but doens't guarentees which other threads will get the cpu.
+
+35) What is the concurrency level of ConcurrentHashMap in Java?
+Ans: 1) In order to achive concurrency Map is partitioned at, Bucket level, by defaul its is 16
+     2) Concurrentcy level is optional parameter can be provided through its constuctor. by default its 16.
+
+36) What is Semaphore in Java?
+Ans: 1) Semaphore is the new kind of Synchornizer, Its is counting semaphore.
+        Conceptually semaphore mantiains set of permits (consider this as room key of hotel manager),
+        The threads aquires the permits (Cosider this as constumer takes room key from hotel manager).
+        once job done threads releases the permit (Consider this as constumer is checking out after the stay is over and he will handover the key to the manager)
+     2) Semaphore is used to protect expensive resouces which is in fixed number. eg Database connection.
+
+
+
+37) What happens if you submit a task when the queue of the thread pool is already filled?
+Ans: It will block until a task is cleared, but if it couldn't able to schedule it then it will throw Throws reject execution exception.
+
+
+38) What is the difference between the submit() and execute() method thread pool in Java?
+Ans: execute: execute(Runnable)
+              return void.
+
+     submit: submit(Runable/Callable)
+             return output of the computation of future.
+
+
+39) What is blocking method in Java?
+Ans: blocking method is the method which blocks the control until the task is done.
+     for eg .accept() method in ServerSocketConnection.
+     future.get() method which waits for computation to get over so that it can return its value.
+
+
+***
+43) How to create an Immutable object in Java?
+Ans: keep class final.
+     all the properties final.
+     no setters.
+
+44) What is ReadWriteLock in Java?
+Ans: It an interface provided by java 5
+     ReadWriteLock maintains pair of associated locks, one only for read ops and other only for write ops.
+     Read lock can be held by multiple threads simultanoesly whereas write lock is exclusive.
+
+
+46) What is the difference between the volatile and atomic variable in Java?
+Ans: Volatile variable pushes the object into the share memory so that multiple threads can access it, but it doesnt guarentees atomicity.
+     atomic variable gauraentees atomicity and save threads from race condition.
+     Explain Counter++ problem
+
+
+47) What happens if a thread throws an Exception inside synchronized block?
+Ans: Scenario 1: if the thrown exception is catched inside the syncblock then the syncblock will not release lock unless and untill the whole block is executed.
+     Scenario 2: if the exception is thrown from the syncblock and catched/propgated outside then it will release the lock.
+     In case of reentrant lock, the lock should be release in finally.
+
+53) What is the difference between calling wait() and sleep() method in Java multi-threading?
+Ans: wait(): Gives up lock if waiting for contion is true. or waiting for notification from notify() or notifyAll()
+
+    sleep(): Gives up CPU but doesn't gives up lock,
+             Calling sleep method doesn't release the lock held by the current thread.
+             infact it pause the execution of threads for given time

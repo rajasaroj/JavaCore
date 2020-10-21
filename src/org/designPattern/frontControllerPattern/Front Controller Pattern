@@ -1,0 +1,40 @@
+Link for refernce: https://www.geeksforgeeks.org/front-controller-design-pattern/
+
+Intro: This pattern provides centerlize mechanism for all type of request handling,
+       It handles all type of request, along with that it also does
+       authetication,
+       authoriaztion,
+       Request Tracking,
+       Request loging.
+
+       After completing above steps it send the request to dispatcher
+       The dispatcher does the processing on request param and determines the appropriate view for the request.
+       this reduces code duplication and encourages code reusablity.
+
+What problem does this solves:
+        let take an example of a online shopping website,
+        the online shopping website handles multiple users along with that it has also handle sequence of step from product selection to billing
+        and invoce genration all of these step has to handled correctly with security and consistency for all users/customer
+        lot of code deplucation can occur in this case, this will led to poor management of code component and might intruduce inconsistency.
+
+
+how does Front Controller handle the problem in this case:
+        1) Front Controller receive the request:
+                    - authenticates it.
+                    - authorizes it.
+                    - tracks it.
+                    - log it.
+                    - send the request to dispatcher for futher processing.
+
+                    2) dispatcher is called:
+                                - it parses the request param.
+                                - processes them and detemines the appropriate view for the request.
+
+                                3) Correct view is called.
+
+
+
+
+
+
+

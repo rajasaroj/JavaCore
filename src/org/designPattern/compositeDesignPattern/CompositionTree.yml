@@ -1,0 +1,23 @@
+CompanyDirectory:
+    -devDirectry:
+     "mani (leaf)"
+     "honey (leaf)"
+    -mandirectroy:
+      "jones (leaf)"
+      "aman (leaf)"
+
+
+
+Graph:
+Employee_Component_Interface:
+  Developers:
+    "dev1"
+    "dev2"
+    "dev3"
+  Managers:
+    "manager1"
+    "manager2"
+    "manager3"
+  Composite_AllEmpDirectory:
+    -Developers:
+    -Managers:

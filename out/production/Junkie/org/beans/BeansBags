@@ -1,0 +1,103 @@
+Java Beans:-
+	-What is Java Bean?
+	-Advantages of Java Bean.
+	-Introspection Design Patterns for Properties
+	-Design Patterns for Events
+	-Using the BeanInfo Interface
+	-Persistence
+	-Customizers
+	-Learning the Basics of an Event.
+	-Using the Java Beans Conventions.
+	-using the Remote Notification and Distributed Notification
+
+
+
+-What is Java Bean?
+Ans: Java Bean is a reusable component, this component can be used in many different enviornment.
+     Basically the java bean encapsulate many other objects into one object.
+     this provides reusablity, easy maintence etc.
+      inorder to make a java class as a bean it must have.
+      1) no args constructor.
+      2) must have properties.
+      3) must implements seriazable.
+
+
+-Advantages of Java Bean.
+Ans: 1) State of bean can be persisted.
+     2) Components are reusable.
+     3) easy for maintenece.
+     4) Good to be introspectd by application builder tools
+
+
+
+-Introspection Design Patterns for Properties
+Ans: Introspection: it is used to examine the java beans to understand what, feature and functionality is provided by java bean.
+                    There are other design tool with require information about the bean, uses Introspection internally to gain this information.
+
+                    in order to get the bean introspected, there are two ways:
+                    1) Use proper design pattern with correct naming conventions.
+                    2) OR you can also implement java Beaninfo interface which will explicitly provide the information about the bean.
+
+     Design Patterns for Properties:
+                    a) Simple Properties: it consist of only one value, it is basic getter and setter, which provides read and write ops or read-only ops.
+                    b) Boolean Properties: it can be ether true or false, the design patern can be identified as
+                                           public boolean isN()
+                                           pulbic boolean setN(boolean value)
+                                           public boolean getN()
+                                           here n is the name of boolean proeprty.
+                    c) Indexed properties: it can have multiple value, the design pattern can be identified as:
+                                           public int getN(int index)
+                                           pulbic void set(int index, int value)
+                                           public void setN(int[] value)
+
+
+-Design Patterns for Events
+Ans: Event follows a delegation design pattern,
+     this kind of event are fired whenever a particular event is happened.
+     the bean can do various operation such as fireing an event or transfering an object etc.
+     The design pattern is given as:
+     public void aadTemplistener(TemperatureForcastListner tfl)
+     public void removeTemplistener(TemperatureForcastListner tfl)
+
+     this is a example of delegation model where a temperature forcast lisner is registered usign "aadTemplistener" method,
+     TemperatureForcastListner can be an interface which will have vaious implementation for sending notfication to people, during upcoming strom or sunday day.
+
+
+-Using the BeanInfo Interface
+Ans: So there are two ways to gain the information about the bean functionalities and features:
+     1) implicit way following the design pattern and the naming conventions.
+     but if you want to fetch this information in the explicity way you have to use BeanInfo interface.
+     this method as 3 abstract method that need to be implemented by the java bean class.
+     1) PropertyDiscipter[] getPropertyDiscipter(): this will provide all the information about the properties in the bran class.
+     2) EventSetDiscriptor[] getEventSetDiscriptor(): this will provide all the infromation about envent in the class.
+     3) MethodDescriptor[] getMethodDescriptor(): this will provide all the method information in the class.
+     by implementing this method, the develop can decide what information should be exposed to user.
+
+
+-Persistence
+Ans: Persistence is about saving the current state of an object or bean or component. so that when you resume, you should resume from the same state rather than starting from being.
+     In order to make the java bean persitence it should implement seriazable marker interface.
+     persistence enable the developer to store the current state of object/bean in the non volatile storage space.
+
+-Customizers
+Ans: they are used to configure the bean.
+
+
+-Learning the Basics of an Event.
+Ans: Java Event Model used byy java beans is to make a communication happen,
+     That means a component can provide multpile computation for providing feedback and handling event of other services
+     for eg: there is an component which can provide a data analysis of the given data,
+             here you can design your component to listen to the event and provide the data to this component which will generate the analysis report which your
+             app can provide it to the user as notification (check this question above for more detail eg: -Design Patterns for Events)
+
+
+-Using the Java Beans Conventions.
+Ans: Java Beans should follow correct naming convention of properties, methods or event so that the introspector can examine the bean corrent and can provide
+     accurate information about the bean.
+
+
+-using the Remote Notification and Distributed Notification
+Ans: Java beans can access remote beans/objects thorugh
+     Client/server socket
+     Java RMI: using RMI the java bean can inovke the remote method within in network system.
+     JDBC: using JDBC client can able to connect to database server with the help of JDBC driver program, and get it queries excuted on the Database servers.

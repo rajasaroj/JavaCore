@@ -1,0 +1,159 @@
+---------------------------------------------- Beginner Level ------------------------------------------------------------
+Q1  What is Collection? What is a Collections Framework? What are the benefits of the Java Collections Framework?
+Ans: Collection:  A collection is also called as container, it groups multiple elements into single unit.
+     Collection Framework:  Provide Unified architecture for manupluating data objects and representing collection.
+     Benefits : Increase Speed and quality, resulablity, decreases programming effort.
+
+
+Q2 What is the root interface in the collection hierarchy?
+Ans: Root hierarchy is iterable iterface, which provides methods like iterator, foreach and splititerator but it belong to java.lang package
+     Child of iterable interface is collection interface
+
+
+Q3 What is the difference between Collection and Collections?
+Ans: Collection: is an interface whcih provides multiple interfaces of set, list, queue etc
+     Collections: is a Utility class is consists of static methods to iterate, Search upon particular element or data present in Collection
+
+
+Q4 Which collection classes are synchronized or thread-safe?
+Ans: Vector, Stack, Hashtable, Properties
+
+
+Q5 Name the core Collection interfaces?
+Ans: Collection -> {
+            List,
+            Queue -> {
+                Deque,
+                BlockingQueue
+            },
+            Set -> {
+                SortedSet,
+                NavigatiableSet
+            }
+   }
+
+
+Q6 What is the difference between List and Set?
+Ans: List: Ordered (the way in which objects are added), Can have duplicates.
+     Set: Unordered, Does not Store Duplicates, Unique elemets only.
+
+
+Q7 What is the difference between Map and Set?
+Ans: Map -> {
+        keys: (Only Unique keys are allowed)
+        Values: (Values can be same)
+    },
+
+    Set -> {
+        Values: (Only Unique Values are allowed)
+    }
+
+
+Q8 What are the classes implementing List and Set interface?
+Ans: List -> {
+        Abstractlist, Arraylist, LinkedList, AbstractSequentiallist, Vectors
+    },
+
+    Set -> {
+        TreeSet, AbstractSet, HashSet
+    }
+
+
+Q9 What is an iterator?
+Ans: It is a interface found in java.util used to iterate over collection
+
+
+Q10 What is the difference between Iterator and Enumeration?
+Ans: Iterator is can also manipulate (can removes objects) the data while iteraton.
+     Enumeration only iterate over the data, no modification, only read only interface. (only travese and fetch)
+
+
+Q11 Which design pattern followed by Iterator?
+Ans: it follows iterator design pattern, Iterator design pattern can navigate through collection of objects without letting
+     know about underlying implementation. (eg: Enumeration)
+
+
+Q12 Which methods you need to override to use any object as a key in HashMap?
+Ans: Equals and Hashcode method should be overriden when you use object as key.
+
+
+Q13  What is the difference between Queue and Stack?
+Ans: Queue is the Datastructure which is based on FIFO (eg: You take ticket in ticket counter and then youre allowed to enter in multiplex
+     in Queue).
+     Stack is the Datastucture which is based on LIFO (eg: Placing clothes in the bag or Instagram Feeds)
+
+
+Q14 How to reverse the List in Collections?
+Ans: reverse method can be called for Collections class to reverse list
+
+
+Q15 How to convert the array of strings into the list?
+Ans: Arrays.asList()
+
+
+---------------------------------------------- Intermediate Level ------------------------------------------------------------
+Q16 What is the difference between ArrayList and Vector?
+Ans: Arraylist is non threadsafe, but it is fast.
+               When needed Arraylist increase 50% of its capacity.
+               Default size is 10.
+               Uses iterator to iterate.
+
+     Vector is threadsafe, is slow
+               When needed Vector increase 2x of its capacity.
+               Asks you to set size manually.
+               The only class that uses iterator and enumerator.
+
+
+Q17 What is the difference between HashMap and Hashtable?
+Ans: HashMap -> {
+            -Non Thread safe.
+            -Faster than hashtable.
+            -Uses iterator.
+            -Used in Single threaded env.
+
+            Key: Allows only one null key.
+                 Allows no Duplicate key.
+
+            Value: Allows n numbers of null values.
+        },
+
+     HashTable -> {
+            -Thread Safe.
+            -Slower than the non synchornized HashMap.
+            -Uses Enumerator.
+            -Used in Multi-threaded env.
+
+            Key: No Null keys allowed.
+            Values: No Null values allowed
+        }
+
+
+Q18 What is the difference between peek(), poll() and remove() method of the Queue interface?
+Ans: Both poll() and remove() method is used to remove the head object of the queue.
+
+     Senario: What if the queue is empty:
+            poll() -> returns null.
+            remove() -> throws NoSuchElementException.
+            peek() -> although peek method retrive but doesnt removes the head of queue, so in this case it will also return null.
+
+
+
+Q19 What is the difference between Iterator and ListIterator.
+Ans: Iterator: will travese on objects only in forward direction.
+     ListIterator: will travese on objects in both the direction (forward, backword both)
+
+
+Q20 What is the difference between Array and ArrayList in Java?
+Ans: Array: Static in size (You've to mention size while creation).
+            can contain primitive datatype as well as objects.
+            can be multidimentional.
+            only stores homogenous elements.
+
+     ArrayList: Dynamic in size (no need to mention size).
+                contain only object
+                only single dimensional.
+                can store heterogenous elements.
+
+
+Q21 What is the difference between HashSet and TreeSet?
+Ans:

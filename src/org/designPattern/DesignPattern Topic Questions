@@ -1,0 +1,53 @@
+Java Design pattern
+	-Describing the Java EE Application Architecture
+	-Introducing a Design Pattern...
+	-The Front Controller Pattern
+	-The Composite Pattern
+    -The Builder design pattern     https://refactoring.guru/design-patterns/builder
+    -The Facade Pattern
+    -The Data Access Object Pattern
+    -The Factory Method
+
+Link for reference: https://refactoring.guru/design-patterns/behavioral-patterns
+
+
+-Describing the Java EE Application Architecture
+Ans: The Application Architure is necessarily required to ensure development of the application and managment of its enterprise application.
+     It should be scalable, robust, felixible and reusable.
+     usually Java EE Application Architure are composed of 3 tiers
+     Presentation Teir: This teir handle the view layer, inputs and interaction of user.
+     business Tier: this teir process the input and applyiny business logic and generates the output
+     Enterpise Information Tier (DB's): This tier is resposible for performing Queries, Persiting data or fetching data from DBs etc.
+
+
+
+-Introducing a Design Pattern...
+Ans: Design patterns are language independent solutions, that has been used to solve recurring problems.
+     Design patterns first describes the approach and then provides the solution.
+     They are applied in the form of object and clases.
+     They are proven standardize way to solve a particular problem.
+
+     there has been various issue with web application design, which later led to creating the whole application from scratch.
+     These type of recurring problems are solved by Design patterns.
+
+
+
+-The Front Controller Pattern
+Ans: check the Txt file.
+
+
+-The Composite Pattern.
+Ans: check the Txt file and the code.
+
+-The Builder design pattern
+Ans: Check the code.
+
+-The Facade Pattern
+Ans: Check Facada Pattern Txt file
+
+-The Data Access Object Pattern
+Ans: Check Data Access Object Pattern txt file
+
+
+-The Factory Method
+Ans: Check Factory Method txt file

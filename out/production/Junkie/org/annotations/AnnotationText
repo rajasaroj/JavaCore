@@ -1,0 +1,71 @@
+Annotation:-
+-Retention Annotation.
+-Documented Annotation, Inherited, Overriding, Depricated Annotation.
+-Target/Type Annotation.
+-Repeatable Annotation.
+-Marker Annotation.
+
+-Annotation
+Ans: The annontation starts with "@"
+     They are use to represent some metadata regarding the class or its member.
+     the annotation doesn't impacts the behaurious of complied program while execution.
+     but the annotation can change the way a program is interpretated by compiler
+     eg: @override (if you provide override then you have to use correct signature of overriden method or else it will throw compile time error)
+
+-Single Member Annotation
+Ans: Single Member annotation are those annotation which allows you to initialize the value of the member.
+     Allow shorthand form of specifing any member.
+     Check the code added.
+
+-Marker Annotation.
+Ans: this annotation doesn't hold any data it is only used for marking.
+     This annotation, doesn't containts any member, only the presence of the annotation is sufficent.
+     eg @override
+
+-Target/Type Annotation.
+Ans: this annot* can be applied anywhere where the type is used.
+     this can also used to annotate return type.
+     Check the code added.
+
+     Target annotation: this annotation is used for annotating the annotation:
+                        wonder why we need to annotate the annotation???
+                        Ans: while looking at the annotation it is difficult to identify, whether that particular annotation is created for annotating method, package, parameter etc
+                        When you annotate your annotation with @Target(Element_Type.METHOD) it become self explainable, that this particular annotation is created for annotating method.
+                        similarly using @Target you can annotated many other element of java.
+                        it take any Enum as a parameter, which consist of all the element type listed below.
+                        METHOD.
+                        TYPE.
+                        PARAMETER.
+                        PACKAGE
+                        CONSTRUCTOR.
+                        ANNOTATION_TYPE.
+                        VARIABLE.
+                        FIELD.
+
+
+-Retention Annotation.
+Ans: This annotation determines how long the annotation will retent.
+     1) Source: the annotation will be retained at source level, and ignored during compilation.
+     1) Class:  the annotation will be retained at compile time, but ignored by JVM.
+     1) Runtime:the annotation will be retained at JVM.
+
+
+
+--Documented Annotation, Inherited, Overriding, Depricated Annotation.
+Ans: these are the type of marker annotation,
+      Documented: it is a marker interface that tell tool like javadoc that these code should be documented.
+      Overriding: as explained above, used for marking the overriding method in order to ensure the correct singnature of overriden method.
+      Depricated: it is used to annotate those item in the code those are depricated, so that the tools like sonarcube can detect them and encourage the developer to update it with latest one.
+      Inherited: it is used to annotate those element in the code which has be inherited from parent class, with this annotation it become easy to identify which element are inherited and which one's only belongs to child.
+
+
+-Repeatable Annotation.
+Ans: Repeatable Annotation are those annotation that can be reused mulitple time for same item.
+     for an annotation to be repeatable it has to be annotated with @Repeatable.
+     The @Repeatable annotation requires a container type.
+     Now the Container is a another annotation type, which will hold the array of the repeatable annotation.
+     so if the repeatable annotionation is called five times then the container type will hold the 5 objects of repeatable annotation.
+
+     while annotating with @Repeatable you have to provide the container class as an argument.
+     the container class must declare the value method with the return type as array of repeatable annotation type.
+     Check the code added.
