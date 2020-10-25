@@ -1,38 +1,38 @@
-##1) What is hibernate?
-##2) What is ORM?
-##3) Explain hibernate architecture?
-##4) What are the core interfaces of Hibernate?
-##5) Mention some of the advantages of using ORM over JDBC.
-##6) Define criteria in terms of Hibernate.
-##7) List some of the databases supported by Hibernate.
-##8) List the key components of Hibernate.
-##9) Mention two components of Hibernate configuration object.
-##10) How is SQL query created in Hibernate?
-##11) What does HQL stand for?
-##12) How is HQL query created?
-##13) How can we add criteria to a SQL query?
-##15) What is SessionFactory?
-##16) Is SessionFactory a thread-safe object?
-##17) What is Session?
-##18) Is Session a thread-safe object?
-##19) What is the difference between session.save() and session.persist() method?
-##20) What is the difference between get and load method?
-##21) What is the difference between update and merge method?
-##22) What are the states of the object in hibernate?
-##23) What object transition diagram
-##24) How to make an immutable class in hibernate?
-##25) What is automatic dirty checking in hibernate?
-##26) How many types of association mapping are possible in hibernate?
-##27) Is it possible to perform collection mapping with One-to-One and Many-to-One?
-##28) What is lazy loading in hibernate?
-##29) What is HQL (Hibernate Query Language)?
-##30) What is the difference between first level cache and second level cache?
+#1) What is hibernate?
+#2) What is ORM?
+#3) Explain hibernate architecture?
+#4) What are the core interfaces of Hibernate?
+#5) Mention some of the advantages of using ORM over JDBC.
+#6) Define criteria in terms of Hibernate.
+#7) List some of the databases supported by Hibernate.
+#8) List the key components of Hibernate.
+#9) Mention two components of Hibernate configuration object.
+#10) How is SQL query created in Hibernate?
+#11) What does HQL stand for?
+#12) How is HQL query created?
+#13) How can we add criteria to a SQL query?
+#15) What is SessionFactory?
+#16) Is SessionFactory a thread-safe object?
+#17) What is Session?
+#18) Is Session a thread-safe object?
+#19) What is the difference between session.save() and session.persist() method?
+#20) What is the difference between get and load method?
+#21) What is the difference between update and merge method?
+#22) What are the states of the object in hibernate?
+#23) What object transition diagram
+#24) How to make an immutable class in hibernate?
+#25) What is automatic dirty checking in hibernate?
+#26) How many types of association mapping are possible in hibernate?
+#27) Is it possible to perform collection mapping with One-to-One and Many-to-One?
+#28) What is lazy loading in hibernate?
+#29) What is HQL (Hibernate Query Language)?
+#30) What is the difference between first level cache and second level cache?
 
 
 
 
 
-##1) What is hibernate?
+#1) What is hibernate?
      1) Hibernate is a light weight orm tool used for, storing retriving, manipulating data into databses.
      2) as hibernate being the orm tool it brigdes the gap between the object world and the db world.
      3) provides automatic table creation.
@@ -41,13 +41,13 @@
      6) Fast performance becasue of l1, l2 cache.
 
 
-##2) What is ORM?
+#2) What is ORM?
      1) ORM is accronym for object releation mapping, it provide the facility to map java pojo into 
         database tables and columns and the values store in the entites as rows.
      2) It simplyfies data creation, access and manipulation.
 
 
-##3) Explain hibernate architecture?
+#3) Explain hibernate architecture?
     1) It starts with JDBC and Conection provide -> Session factory -> Trasaction factory.
         a) JDBC and concection provider: provides the concection to the databses.
         b) Session factory: creates sessions objects and initializes first level cache when you call hibernateUtil.getSessionFactory().
@@ -55,7 +55,7 @@
         d) Persistent object: is the object which is .save() and then .commit() in the database.
 
 
-##4) What are the core interfaces of Hibernate?
+#4) What are the core interfaces of Hibernate?
     1) Configuration.
     2) Session Factory.
     3) session.
@@ -63,7 +63,7 @@
     6) Criteria.
     7) Transaction.
 
-##5) Mention some of the advantages of using ORM over JDBC.
+#5) Mention some of the advantages of using ORM over JDBC.
     ORM has many advantages over JDBC.
         1) Application development is fast.
         2) Different level of cache makes retrival and performance faster.
@@ -71,7 +71,7 @@
         4) Details of SQL are encasulated by hibernate.
 
 
-##6) Define criteria in terms of Hibernate.
+#6) Define criteria in terms of Hibernate.
     1) The hibernate criterion query allow the developer to mention the criteria while retriving the data from databases.
     2) Below eg show how the critera query works:
         a) Criteria cr = session.createCriteria(Employee.class)  // this will initialize the object of criteria using which we can define criterias.
@@ -152,7 +152,7 @@
              Its retrun type is void.
 
 
-##20) What is the difference between get and load method?
+#20) What is the difference between get and load method?
    Get               |       Load
 ---------------------|------------------
 1) return null if object not found  |  throws ObjectNotfoundException
