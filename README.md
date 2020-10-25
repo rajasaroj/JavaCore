@@ -32,7 +32,6 @@
 
 
 
-
 ## 1) What is hibernate?
      1) Hibernate is a light weight orm tool used for, storing retriving, manipulating data into databses.
      2) as hibernate being the orm tool it brigdes the gap between the object world and the db world.
@@ -48,14 +47,12 @@
      2) It simplyfies data creation, access and manipulation.
 
 
-
 ## 3) Explain hibernate architecture?
     1) It starts with JDBC and Conection provide -> Session factory -> Trasaction factory.
         a) JDBC and concection provider: provides the concection to the databses.
         b) Session factory: creates sessions objects and initializes first level cache when you call hibernateUtil.getSessionFactory().
         c) transaction: created when you call session.beginTransaction() it provides impl of transaction using TransactionFactory.
         d) Persistent object: is the object which is .save() and then .commit() in the database.
-
 
 
 ## 4) What are the core interfaces of Hibernate?
@@ -66,14 +63,12 @@
     6) Criteria.
     7) Transaction.
 
-
 ## 5) Mention some of the advantages of using ORM over JDBC.
     ORM has many advantages over JDBC.
         1) Application development is fast.
         2) Different level of cache makes retrival and performance faster.
         3) Automatic Table creation.
         4) Details of SQL are encasulated by hibernate.
-
 
 
 ## 6) Define criteria in terms of Hibernate.
@@ -155,7 +150,6 @@
              Its return type is Serializable.
     2) Persist: Returns nothing for instance.
              Its retrun type is void.
-
 
 
 ## 20) What is the difference between get and load method?
