@@ -178,7 +178,7 @@ you should use update when you're sure that session doesn't contains pressistent
                      b) close()
 
 ## 23) What object transition diagram
-
+![Object trasition diagram](https://user-images.githubusercontent.com/42677426/97113402-138f3500-1710-11eb-8cb4-0059b5ba2a61.png)
 
 
 ## 24) How to make an immutable class in hibernate?
