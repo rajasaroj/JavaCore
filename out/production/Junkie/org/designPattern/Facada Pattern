@@ -1,0 +1,115 @@
+The Facade Pattern:
+
+Intro: facade pattern is the structural Design pattern, it provide simplyfied interface to a 3rd party library or framwork etc.
+
+Problem: When you make you code work using many other obejcts from 3rd party libraries or frameworks,
+         Intializing the objects,
+         managing dependencies,
+         mantiaining the order of method call and so on become more tedious and error prone.
+
+        As the result your buisness logic will get tightly coupled with the 3rd party lib implementation.
+
+
+Solution: Facade pattern provides you the interface to decouple you business logic from your 3 party implementation.
+          you should use facade when youre using a spohticated library provide array of features but your application requires only few feature from library.
+
+          let take a example of an app,
+          You are creating an app, which can read the text from the image, now if you use aws services framework which provide array of feature like OCR, Textract, Sagemaker for Clustering and classification etc.
+          since you app is only concern about reading text from image, you can create a class to call Textract method which will help to read text and that class become you facade.
+
+
+Reallife example: lets supose you want to eat burger.
+                  you will call MCD's the call operator will take your order, here operator is the facade, which is hiding all the subclasses complexities [oder placemnt, cooking, dispatch, delivery] and only exposing those classes/feature which are revelant for you.
+                  here the operator is providing you the simple voice interface for communicating with the complex system.
+
+
+
+
+Instead of making your code work with dozens of the framework classes directly,
+you create a facade class which encapsulates that functionality and hides it from the rest of the code.
+This structure also helps you to minimize the effort of upgrading to future versions of the framework or replacing it with another one.
+The only thing you’d need to change in your app would be the implementation of the facade’s methods.
+
+
+
+
+
+// Let supposed These are some of the classes of a complex 3rd-party video
+// conversion framework. We don't control that code, therefore
+// can't simplify it.
+
+class VideoFile
+// ...
+
+class OggCompressionCodec
+// ...
+
+class MPEG4CompressionCodec
+// ...
+
+class CodecFactory
+// ...
+
+class BitrateReader
+// ...
+
+class AudioMixer
+// ...
+
+
+here we will create our on facade interface only for those classes and feature which are useful for us in or project
+NOTE: facade is a trade off between the functionality and simplicity
+because the facade will ignore all the rest of the functionality provided by Framework and only expose those one which are use full to us.
+
+
+// Facade interface
+interface VedioManager {
+
+    void VedioConvert(String path);
+
+}
+
+//facade Class
+class VedioMaker implement VedioManager {
+
+    @override
+    public void VedioConvert(String path) {
+
+    VedioFile vediofile = new VedioFile(path);
+    MPEG4CompressionCodec mpegCompessionCodec = new MPEG4CompressionCodec(vediofile);
+    mpegCompessionCodec.convert();
+
+    }
+
+    public void displayVedio() {
+        // run the vedio
+    }
+}
+
+
+class MyApp {
+
+    public void static main() {
+       VedioMaker vediomaker = new VedioMaker();
+       vediomaker.VedioConvert("c:/world.mp4");
+       vediomaker.displayVedio();
+
+    }
+}
+
+
+in the above example you can se only those object are used from 3rd party library that too after impelementing the interface and providing the implementation using facade class VedioMaker
+and you're app, just have to call the vediomaker.VedioConvert() method and you vedio will be converted.
+
+Observation:
+here you can see, youre facade class has encapsulated all the impl details and you app just have to connect to that class object and call the VedioConvert() method to get the job done.
+
+
+
+
+
+
+
+
+
+

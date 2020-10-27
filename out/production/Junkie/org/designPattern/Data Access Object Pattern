@@ -1,0 +1,76 @@
+Intro: The Data Access Object is the Structural design pattern which is intented to isolate the the buisness layer from the persistent layer complexities.
+
+Problem: when crud operations are tightly cupled with the business logic, it make the code non resuable and non upgrable as well.
+         at the same time the complexities of the crud layer is also get jumbled in the business logic
+
+This type of problem is addressed by DAO pattern
+
+Solution: Let take a example of data indexed in search engines from update from RDB Database.
+
+Here we can use DAO pattern to decouple the persitence layer from business logic and reuse it for search engne and db as we know they both performs curd operation in there own ways
+Let say you provide search on user data
+you can create a data model class "User"
+and the interface which has abstract method for crud operation,
+now you can have multiple persitance layer in or case we have RDBDao and SaearchEngineDao which will handle crud on there side
+and the client buisiness logic remains isolated and un touched.
+
+
+class User {
+    Name
+    address
+    id
+}
+
+interface Persitantable {
+
+    add()
+    update()
+    get()
+    remove()
+
+}
+
+class RDBDao impelements Persitantable {
+    add() {
+        //  DB insert
+    }
+
+    update() {
+       // DB update
+    }
+
+    get() {
+       // DB get
+     }
+
+    remove() {
+         // DB remove
+     }
+}
+
+class SearchEngineDao impelements Persitantable{
+    add() {
+        //  document insert
+    }
+
+    update() {
+       // document update
+    }
+
+    get() {
+       // document get
+     }
+
+    remove() {
+         // document remove
+     }
+}
+
+class UserApplication {
+
+    RDB rdb = new RDB();
+
+    rdb.add();
+    searchEngine.add()
+
+}
