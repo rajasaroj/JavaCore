@@ -1,5 +1,8 @@
 package com.company.string_tuturials;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -19,9 +22,15 @@ public class Main {
 
 
 
-       System.out.println(StringHelper.permutationFinder(new StringBuffer("abcd")));
+       //System.out.println(StringHelper.permutationFinder(new StringBuffer("abcd")));
+        String a = "sachin";
+        String b = " sachin";
+        System.out.println(a==b);
 
-
-
+        //List<Animal> as = new ArrayList<Dog>();
     }
 }
+
+class Animal {}
+class Dog extends Animal {}
+class  Cat extends Animal {}
