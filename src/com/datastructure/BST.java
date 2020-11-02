@@ -92,7 +92,7 @@ public class BST {
             System.out.println(node.data +  " is deleted ");
             node = null;
             return orphan;
-            
+
         } else if (node.left != null && node.right !=null && node.data == value) {
 
             Node successor = node.right;
