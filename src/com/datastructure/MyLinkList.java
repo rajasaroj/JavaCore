@@ -56,6 +56,26 @@ public class MyLinkList {
 
     }
 
+
+//    public MyLinkList insertAtinMiddle(MyLinkList list, int data, int position) {
+//        Node node = new Node(data);
+//
+//        Node curr = list.head;
+//        Node prev = null;
+//
+//        for (int i=0; i<position; i++) {
+//            prev = curr;
+//            curr = curr.next;
+//        }
+//
+//        prev.next = node;
+//        node.next = curr;
+//
+//
+//        return list;
+//    }
+
+
     public MyLinkList insetAtEnd(MyLinkList list, int data) {
 
         Node new_node = new Node(data);
@@ -106,24 +126,25 @@ public class MyLinkList {
 
     public static void main(String[] args) {
         MyLinkList myLinkList = new MyLinkList();
-//        myLinkList.insertNode(myLinkList, 1);
-//        myLinkList.insertNode(myLinkList, 2);
-//        myLinkList.insertNode(myLinkList, 3);
-//        myLinkList.insertNode(myLinkList, 4);
-//        myLinkList.insertNode(myLinkList, 5);
+        myLinkList.insertNode(myLinkList, 1);
+        myLinkList.insertNode(myLinkList, 2);
+        myLinkList.insertNode(myLinkList, 3);
+        myLinkList.insertNode(myLinkList, 4);
+        myLinkList.insertNode(myLinkList, 5);
+        //myLinkList.insertAtinMiddle(myLinkList, 88, 2);
 
-      myLinkList.insetAtEnd(myLinkList, 1);
-        myLinkList.insetAtEnd(myLinkList, 2);
-        myLinkList.insetAtEnd(myLinkList, 3);
-        myLinkList.insetAtEnd(myLinkList, 4);
-        myLinkList.insetAtEnd(myLinkList, 5);
+        //myLinkList.insetAtEnd(myLinkList, 1);
+        //myLinkList.insetAtEnd(myLinkList, 2);
+        //myLinkList.insetAtEnd(myLinkList, 3);
+        //myLinkList.insetAtEnd(myLinkList, 4);
+        //myLinkList.insetAtEnd(myLinkList, 5);
 
 //        myLinkList.insertInMiddle(myLinkList, 0, 5);
 //
 //        myLinkList.printList(myLinkList);
        // myLinkList.rewind(myLinkList, myLinkList.head);
 
-        myLinkList.reverseLinkedList(myLinkList);
+        //myLinkList.reverseLinkedList(myLinkList);
         myLinkList.printList(myLinkList);
 
 

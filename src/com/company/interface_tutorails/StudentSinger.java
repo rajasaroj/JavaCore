@@ -6,6 +6,8 @@ public class StudentSinger implements MyInterface {
         System.out.println("I am printing from StudentSinger");
     }
 
+
+
     public static void main(String args[]){
         new StudentSinger().printer();
         System.out.println(MyInterface.a);

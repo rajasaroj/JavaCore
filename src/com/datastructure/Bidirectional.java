@@ -57,6 +57,54 @@ public class Bidirectional {
 
     }
 
+
+    public static Bidirectional insertInSortedMiddle(Bidirectional list, int data) {
+
+        Node node = new Node(data);
+        Node curr = list.head;
+        boolean ext=false;
+
+        if (curr.data > data) {
+            node.next = curr;
+            curr.prev = node;
+            node.prev = null;
+            list.head = node;
+            return list;
+        }
+
+
+        while (curr.data < data) {
+
+            if (curr.next != null)
+                curr = curr.next;
+            else {
+                ext=true;
+                break;
+            }
+        }
+
+
+        if(ext) {
+
+            curr.next = node;
+            node.prev = curr;
+            node.next = null;
+
+        } else {
+            node.next = curr;
+            node.prev = curr.prev;
+
+            curr.prev.next = node;
+            curr.prev = node;
+        }
+
+
+
+        return list;
+    }
+
+
+
     public static Bidirectional insertInMiddle(Bidirectional list, int data, int index) {
 
         Node curr = list.head;
@@ -119,24 +167,27 @@ public class Bidirectional {
     public static void main(String[] args) {
         Bidirectional list = new Bidirectional();
 
-        insertBiNode(list, 1, true);
-        insertBiNode(list, 2, true);
-        insertBiNode(list, 3, true);
-        insertBiNode(list, 4, true);
-        insertBiNode(list, 5, true);
+//        insertBiNode(list, 1, true);
+//        insertBiNode(list, 2, true);
+//        insertBiNode(list, 3, true);
+//        insertBiNode(list, 4, true);
+//        insertBiNode(list, 5, true);
 
         insertBiNode(list, 1, false);
         insertBiNode(list, 2, false);
         insertBiNode(list, 3, false);
-        insertBiNode(list, 4, false);
         insertBiNode(list, 5, false);
+        insertBiNode(list, 7, false);
 
-        insertInMiddle(list, 0, 5);
-
+        //insertInMiddle(list, 0, 5);
+        //insertInSortedMiddle(list, 4);
+        //insertInSortedMiddle(list, 6);
+        insertInSortedMiddle(list, 8);
+        insertInSortedMiddle(list, 0);
         printList(list);
-        deleteFromMiddle(list, 0);
-        System.out.println("---------------after delete-------------------");
-        printList(list);
+//        deleteFromMiddle(list, 0);
+//        System.out.println("---------------after delete-------------------");
+//        printList(list);
 
     }
 
