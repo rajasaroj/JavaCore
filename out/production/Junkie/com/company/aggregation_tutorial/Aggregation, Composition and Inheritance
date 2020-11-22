@@ -12,7 +12,9 @@ with the facility of paying to only those service as per there computation requi
 
 
 2) Composition: (Is a)
-Composition is a more restricted form of Aggregation. Composition can be described as when one class which includes another class, is dependent on it in such a way that it cannot functionally exist without the class which is included. For example a class Car cannot exist without Engine, as it won't be functional anymore.
+Composition is a more restricted form of Aggregation.
+Composition can be described as when one class which includes another class, is dependent on it in such a way that it cannot functionally exist without the class which is included.
+For example a class Car cannot exist without Engine, as it won't be functional anymore.
 Hence the word Composition which means the items something is made of and if we change the composition of things they change, similarly in Java classes, one class including another class is called a composition if the class included provides core functional meaning to the outer class.
 
 Example 2: Aws provides infrastructure is a code facility
