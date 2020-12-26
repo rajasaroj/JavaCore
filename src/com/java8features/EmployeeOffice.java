@@ -1,6 +1,7 @@
 package com.java8features;
 
 
+import java.io.Serializable;
 import java.util.*;
 
 class Employee {
@@ -53,6 +54,11 @@ public class EmployeeOffice {
         // Given a list of employees, you need to filter all the employee whose age is greater than 20 and print the employee names.(Java 8 APIs only)
         //List<String> at =  employeeOffice.employeeList.stream().filter(x -> x.getAge() > 20).map(Employee::getName).collect(Collectors.toList());
         //System.out.println(at);
+        employeeOffice.employeeList.stream().filter(x -> x.getAge() > 20).forEach(x -> {
+            System.out.println(x.getName());
+        });
+
+        employeeOffice.employeeList.stream().filter(x -> x.getAge() > 20).findAny().get();
 
         // 17) Given the list of employees, count number of employees with age 25?
         //Long Count = employeeOffice.employeeList.stream().filter(x -> x.getAge() == 25).count();
@@ -88,7 +94,7 @@ public class EmployeeOffice {
         //employeeOffice.employeeList.stream().mapToInt(Employee::getAge).average();
 
         //employeeOffice.employeeList.forEach();
-
+        
     }
 
 

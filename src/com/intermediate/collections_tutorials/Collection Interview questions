@@ -90,6 +90,9 @@ Ans: reverse method can be called for Collections class to reverse list
 Q15 How to convert the array of strings into the list?
 Ans: Arrays.asList()
 
+Important
+Q36 From Sir's Notes Day 8 Viva collections
+Q45 From Sir's Notes Day 8 Viva collections
 
 ---------------------------------------------- Intermediate Level ------------------------------------------------------------
 Q16 What is the difference between ArrayList and Vector?

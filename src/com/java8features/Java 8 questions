@@ -54,6 +54,8 @@ Ans: Yes. refer the code.
 8) What is method reference in java 8?
 Ans: Method reference is used to refer method for functional interface, it is more compact way of assigning methods,
      You can replace lambda with method refernces.
+
+
      Crietera for implementing the method reference.
      1) the protoype or signature of funtional interface method is same as reference method.
      2) or the return type of referencing method should be the child class of (the return type of abstract method)
@@ -106,17 +108,22 @@ Ans: until java 7 JVM used PermGen to store classes, but the problem with the Pe
 
 16) Given a list of employees, you need to filter all the employee whose age is greater than 20 and print the employee names.(Java 8 APIs only)
 Ans: Answers in EmployOffice Code.
+employees.stream().filter(x -> x > 20).foreach(x -> { syso(x.getName()) })
 
 
 17) Given the list of employees, count number of employees with age 25?
 Ans: Answers in EmployOffice Code.
+employees.stream().filter(x -> x > 20).count();
 
 
 18) Given the list of employees, find the employee with name “Mary”.
 Ans: Answers in EmployOffice Code.
+employees.stream().filter(x -> x.getname().equals("mary")).findany().get();
 
 19)Given a list of employee, find maximum age of employee?
 Ans: Answers in EmployOffice Code.
+Collections.sort(employees.stream().mapToInt(x::getAge).collect(Collectors.toList()),
+                 Collections.reverseOrder());
 
 
 20) Given a list of employees, sort all the employee on the basis of age? Use java 8 APIs only?
@@ -129,6 +136,8 @@ Ans: Answers in EmployOffice Code.
 
 22) Given the list of employee, group them by employee name?
 Ans: Answers in EmployOffice Code.
+
+Map<String, Object> hmap = employees.stream().collect(Collectors.groupingBy(x::getName))
 
 
 23) Difference between Intermediate and terminal operations in Stream?

@@ -1,11 +1,12 @@
 package com.intermediate.collections_tutorials;
 
+import java.util.Collections;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 
 public class BlockRunner {
 
-
+ 
 
     static int i = 1;
     public static void main(String[] args) throws InterruptedException {
@@ -69,6 +70,9 @@ public class BlockRunner {
         producer2.start();
         consumer.start();
         consumer2.start();
+
+        // Read only
+        Collections.unmodifiableCollection(at);
 
     }
 

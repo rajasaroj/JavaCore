@@ -1,7 +1,10 @@
 package com.intermediate.collections_tutorials;
 
+import javafx.concurrent.Task;
+
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.FutureTask;
 
 public class Collect {
 
@@ -17,6 +20,16 @@ public class Collect {
         hmap.put("hello", 1);
         hmap.put(true,2);
         hmap.put(null, null);
+
+        hmap.entrySet().iterator().remove();
+        ArrayList ls;
+
+        FutureTask ftsk = new Task() {
+            @Override
+            protected Object call() throws Exception {
+                return null;
+            }
+        };
 
 
         System.out.println(hmap);

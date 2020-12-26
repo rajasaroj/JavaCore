@@ -114,9 +114,9 @@ public class BinarySearchTree {
         root = addNode(root, 10);
 
 
-        delete(root, 5);
-        delete(root, 6);
-        delete(root, 7);
+//        delete(root, 5);
+//        delete(root, 6);
+//        delete(root, 7);
         inoderTraversal(root);
     }
 }

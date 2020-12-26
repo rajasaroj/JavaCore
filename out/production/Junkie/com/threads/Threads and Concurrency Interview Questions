@@ -27,7 +27,7 @@ Ans: As we know that java doesn't support multiple inheritance, but supports imp
      2) extend Thread class.
 
      if you use the 2) option of extending the thread class, then you will not able to extend any other class as java don't support multiple inheritance.
-     but if you go by 1) option you will just impelemnt the interface, and extend any other class like CommandListener.
+     but if you go by 1) option you will just implement the interface, and extend any other class like CommandListener.
      hence  1) Implement runnable is better option.
 
 
@@ -118,7 +118,7 @@ Ans: In simple words "if not caught it will die".
      if the uncaught execption handler is register the it will get the call back if any execption occur.
      SO i that case what happens is:
      1) When any thread about to raise an unCaugthException JVM will query UnCaughtExceptionHandle.
-     2) using the queiring will be done using Thread.getUncaughtExceptionHandler() it will invoke its .uncaughtException() method
+     2) the queiring will be done using Thread.getUncaughtExceptionHandler() it will invoke its .uncaughtException() method
      3) pass the thread, throwable Exception as argument
 
 
